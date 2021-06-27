@@ -1,31 +1,33 @@
 
 import React, { useState, useEffect } from 'react';
+import {Card, Container,ProgressBar, Col, Row ,Button} from 'react-bootstrap'
 
 const TodoForm =(props)=> {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { item: {} };
-  // }
-  const [people, setPeople] = useState( {} );
+ 
+  const [item, setItem] = useState( {} );
+  
  const  handleInputChange = e => {
    console.log(e.target.value,'99999999999')
-    setPeople({...people, [e.target.name]: e.target.value } );
+    setItem({...item, [e.target.name]: e.target.value } );
   
   };
 
  const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    // this.props.handleSubmit(this.state.item);
-    const item = {};
-    setPeople({item});
+    props.handleSubmit(item);
+    const items = {};
+    setItem({items});
   };
 
  
     return (
       <>
         <h3>Add Item</h3>
+        {/* <Card> */}
+
+        
         <form onSubmit={handleSubmit}>
           <label>
             <span>To Do Item</span>
@@ -43,8 +45,9 @@ const TodoForm =(props)=> {
             <span>Assigned To</span>
             <input type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
           </label>
-          <button>Add Item</button>
+          <button >Add Item</button>
         </form>
+        {/* </Card> */}
       </>
     );
   
