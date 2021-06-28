@@ -1,10 +1,15 @@
-{
+{ "homepage": "./",
   "name": "demo-context-api",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
+
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "node-sass": "^4.14.1",
     "react": "16.13.1",
     "react-bootstrap": "^1.6.1",
@@ -16,6 +21,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

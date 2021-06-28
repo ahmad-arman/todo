@@ -1,25 +1,34 @@
 
 import React, { useState, useEffect } from 'react';
 import {Card, Container,ProgressBar, Col, Row ,Button} from 'react-bootstrap'
+import useForm from '../../hooks/useform';
 
 const TodoForm =(props)=> {
 
- 
-  const [item, setItem] = useState( {} );
   
- const  handleInputChange = e => {
-   console.log(e.target.value,'99999999999')
-    setItem({...item, [e.target.name]: e.target.value } );
-  
-  };
+ const [ handleInputChange, handleSubmit, item] =  useForm(props)
 
- const handleSubmit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    props.handleSubmit(item);
-    const items = {};
-    setItem({items});
-  };
+
+  // const [formData, setFormData] = useState({});
+ 
+//   const [item, setItem] = useState( {} );
+  
+//  const  handleInputChange = e => {
+//    console.log(e.target.value,'99999999999')
+//     setItem({...item, [e.target.name]: e.target.value } );
+  
+//   };
+
+//  const handleSubmit = (e) => {
+//     e.preventDefault();
+//     e.target.reset();
+//     props.handleSubmit(item);
+//     const items = {};
+//     setItem({items});
+//   };
+
+
+
 
  
     return (

@@ -26,8 +26,15 @@ function TodoList(props)   {
             key={item._id}
           >
             <span onClick={() => props.handleComplete(item._id)}>
-              {item.text} 
+             Item : {item.text}  <br></br>
+              Assignee: {item.assignee}  <br></br>
+               Difficulty: {item.difficulty}  <br></br>
             </span>
+            {/* <span onClick={() => props.handleComplete(item._id)}>
+              Name: {item.text} <br></br>
+             Assignee: {item.assignee}<br></br>
+             Difficulty: {item.difficulty}
+            </span> */}
             {/* <button onClick={() => props.handleEdit(item._id)}> edit </button> */}
            <Button onClick={() => props.handleDelete(item._id)}> X </Button>
 
@@ -37,7 +44,7 @@ function TodoList(props)   {
           
             <If condition={flag}>
             <Button type='submit' >new edit</Button>
-            <input id={item._id}></input>
+            <input id={item._id} placeholder={item.text}></input>
             {/* <textarea id={item._id} required></textarea> */}
             </If>
             </form>
