@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
-import axios from 'axios'; 
+// import axios from 'axios'; 
 
 import useAjax from '../../hooks/useAjax';
+
+import  {CompletedItem}  from '../../context/item-completed';
+import CompletedSettings from './complete'
 
 import './todo.scss';
 
 const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 
 
+
 const ToDo1 = () => {
+
+  const context = useContext(CompletedItem)
 
   // const [list, _addItem,_toggleComplete,_getTodoItems,deleteItem,editItem] = useAjax(todoAPI)
   let [apiHandler] = useAjax();
@@ -99,7 +105,7 @@ const ToDo1 = () => {
 
 
 
-  const _getTodoItems =async () => {
+  const _getTodoItems = () => {
     // fetch(todoAPI, {
     //   method: 'get',
     //   mode: 'cors',
@@ -116,12 +122,24 @@ const ToDo1 = () => {
     //   .then(data => setList(data.data.results) )
     //   .catch(console.error);
 
-    try {
-      let myData = await apiHandler(todoAPI, "get");
-      setList(myData.data.results);
-    } catch (error) {
-      console.error(error.message);
-    }
+    /**----------------- */
+
+    // try {
+    //   let myData = await apiHandler(todoAPI, "get");
+     
+    //   setList(myData.data.results);
+    // } catch (error) {
+    //   console.error(error.message);
+    // }
+
+    apiHandler(todoAPI, "get")
+    .then((results) => {
+      setList( context.data );
+
+    })
+
+    .catch(console.error);
+
   };
 
   const deleteItem = async (id) => {
@@ -238,7 +256,7 @@ const ToDo1 = () => {
  
   
 
-  useEffect(_getTodoItems, []);
+  useEffect(_getTodoItems, [context]);
 
 
   return (
@@ -252,6 +270,7 @@ const ToDo1 = () => {
       <section className="todo">
 
         <div>
+        <CompletedSettings />
           <TodoForm handleSubmit={_addItem} />
         </div>
 
