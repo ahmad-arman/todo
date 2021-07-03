@@ -61,8 +61,8 @@ const CompletedLogin = (props) => {
             <form onSubmit={handleSignup}>
                 <label>signup </label>
        <input type="text" name="username" placeholder="username" />
-       <input type="text" name="password" placeholder="username" />
-       <input type="text" name="email" placeholder="username" />
+       <input type="text" name="password" placeholder="password" />
+       <input type="text" name="email" placeholder="email" />
        <select name="select">
            <option name="user" id="user" value="user">User </option>
            <option name="admin" id="admin"value="admin" >Admin </option>
