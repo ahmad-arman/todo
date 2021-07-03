@@ -7,10 +7,13 @@ Ahmad Arman
 
 * npm start
 
+* [deploy on netlify for lab 33 ](https://ahmad-401-todo.netlify.app/)
 * [deploy on netlify for lab 32](https://60da2166ba31a12b79380853--ahmad-401-todo.netlify.app/)
 
+
 ### UML 
-* lab 33 in process
+*  lab 33 
+![uml](custom-hooks.png)
 
 * lab 30
 ![UML](hooks.png)
