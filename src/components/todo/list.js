@@ -12,6 +12,7 @@ function TodoList(props)   {
     e.preventDefault()
    let value = document.getElementById(id).value;
    props.handleEdit(id,value)
+   console.log(e.target,'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq')
    setFlag(!flag)
   }  
 

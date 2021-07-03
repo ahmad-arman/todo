@@ -134,7 +134,9 @@ const ToDo1 = () => {
 
     apiHandler(todoAPI, "get")
     .then((results) => {
-      setList( context.data );
+
+      setList( context.currentItem );
+      console.log(context.currentItem ,'weeeeeeeeeeeeeeeeeeeeeeeeeeweeeeeeeeewe')
 
     })
 
@@ -205,7 +207,7 @@ const ToDo1 = () => {
 
       item.text = value;
 
-      item.complete = !item.complete;
+      item.complete = item.complete;
 
       let url = `${todoAPI}/${id}`;
 
