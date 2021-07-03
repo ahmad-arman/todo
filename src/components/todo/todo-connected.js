@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext} from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import  RenderPagination  from "./pagination";
+import ACL from './acl';
+import {Card, Container,ProgressBar, Col, Row ,Header ,Pagination} from 'react-bootstrap'
 // import axios from 'axios'; 
 
 import useAjax from '../../hooks/useAjax';
@@ -17,6 +20,8 @@ const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 const ToDo1 = () => {
 
   const context = useContext(CompletedItem)
+
+ 
 
   // const [list, _addItem,_toggleComplete,_getTodoItems,deleteItem,editItem] = useAjax(todoAPI)
   let [apiHandler] = useAjax();
@@ -263,8 +268,9 @@ const ToDo1 = () => {
 
   return (
     <>
+   
       <header>
-        <h2>
+        <h2  id="hidden">
           There are {list.filter(item => !item.complete).length} Items To Complete
         </h2>
       </header>
@@ -273,18 +279,26 @@ const ToDo1 = () => {
 
         <div>
         <CompletedSettings />
+        <ACL capability="create">
           <TodoForm handleSubmit={_addItem} />
+          </ACL >
         </div>
 
         <div>
+          
           <TodoList
             list={list}
+           
             handleComplete={_toggleComplete}
+          
             handleDelete = {deleteItem}
             handleEdit = {editItem}
           />
         </div>
       </section>
+      <Pagination>
+      <RenderPagination /> 
+      </Pagination>
     </>
   );
 };

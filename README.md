@@ -12,8 +12,8 @@ Ahmad Arman
 
 
 ### UML 
-*  lab 33 
-![uml](custom-hooks.png)
+*  lab 33  
+![uml](lab34.png)
 
 * lab 30
 ![UML](hooks.png)

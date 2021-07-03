@@ -26,12 +26,15 @@ const ToDo =(props)=>   {
   const toggleComplete = id => {
 
     let item = list.filter(i => i._id === id)[0] || {};
-
+     
     if (item._id) {
+     
       item.complete = !item.complete;
       let lists = list.map(listItem => listItem._id === item._id ? item : listItem);
       setList(lists);
+    
     }
+    
 
   };
 

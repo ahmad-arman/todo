@@ -90,13 +90,7 @@ const IncompleteTasks = (props) =>{
      
      console.log(renderPageNumber,'function')
 
-    let state = {
-        checked: toggle, 
-        data: myData,
-        toggle: toggleMode,
-        Page:pages,
-        currentItem:currentItem
-    }
+
 
     const [sort ,setSort] = useState(currentItem)
 
@@ -129,9 +123,19 @@ const IncompleteTasks = (props) =>{
         // console.log(e.target.value)
 
     }
+
+
     // setCurrentItem(currentItem)
        
- 
+     let ahmad = {handlerLimitPerPage,handleNextPage,handlePrevPage,handleNextPage ,renderPageNumber ,handelClick ,handlerSort,currentPage,pages};
+    let state = {
+        checked: toggle, 
+        data: myData,
+        toggle: toggleMode,
+        Page:pages,
+        currentItem:currentItem ,
+        ahmad:ahmad
+    }
 
 
 
@@ -170,7 +174,7 @@ const IncompleteTasks = (props) =>{
 
 
 {props.children} 
-          <ul className="renderPageNumber">
+        {/* {  <ul className="renderPageNumber">
               <li>
                   <button  onClick={handlePrevPage} disabled={currentPage===pages[0] ? true : false}>Prev</button>
               </li>
@@ -191,9 +195,9 @@ const IncompleteTasks = (props) =>{
             <select defaultValue="sort" onChange={handlerSort}>
                 <option disabled value="sort"> sort </option>
                 <option  value="one"> descending on depend  difficulty </option>
-                {/* <option  value="five">  difficulty from 5-1  </option> */}
+               
             </select>
-            </form>
+            </form>} */}
 
              
         
